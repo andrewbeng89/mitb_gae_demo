@@ -12,7 +12,7 @@ install:
 - "pip install -r requirements.txt --use-mirrors"
 script:
 - google_appengine/dev_appserver.py mitb_gae_demo/
-- expect "Allow dev_appserver to check for updates on startup? (Y/n)\\: "
+- expect "Allow dev_appserver to check for updates on startup? (Y/n):%20"
 - send "Y\r"
 after_success:
 - git clone https://github.com/andrewbeng89/mitb_gae_demo.git deploy
