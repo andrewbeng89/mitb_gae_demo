@@ -8,7 +8,8 @@ class MainPage(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         hello_world = {
                 'hello': 'world',
-                'key': 'value'
+                'key': 'value',
+                'another': 'test'
             }
         self.response.write(json.encode(hello_world))
 
