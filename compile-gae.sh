@@ -29,6 +29,5 @@ function install_pil {
     rm -rf rm Imaging-1.1.7*
 }
 
-install_python27
 install_appengine
 install_pil
