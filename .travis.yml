@@ -1,0 +1,19 @@
+language: python
+python:
+- '2.7'
+before_script:
+- wget http://googleappengine.googlecode.com/files/google_appengine_1.7.2.zip
+- unzip google_appengine_1.7.2.zip
+- rm google_appengine_1.7.2.zip
+- mv google_appengine ../lib/
+- cd ../bin/
+- ln -s ../lib/google_appengine/*.py .
+- sudo apt-get install python-imaging
+script:
+- dev_appserver.py mitb_gae_demo/
+after_success:
+- git clone https://github.com/andrewbeng89/mitb_gae_demo.git
+- appcfg.py --oauth2_refresh_token=$MY_GAE_TOKEN update mitb_gae_demo/
+env:
+  global:
+    secure: ELtmEbN4WKZPf+Q/fLy0pUSSCLsXOUCNahECko3bkjclaa71CZNmPTVw7IC36YDI6gqhCx/x6x6n04QkdxoChXKuCN2ht/aQRQUFyvB2br8wtMdEGa6Jl2/5NZ6YOtyY/CfV2551djftm9SL0i4tbHv2PSBRdaFGaN46n4ulicY=
