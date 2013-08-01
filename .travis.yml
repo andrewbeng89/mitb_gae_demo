@@ -11,9 +11,6 @@ before_script:
 install:
 - "pip install -r requirements.txt --use-mirrors"
 script:
-- git clone https://github.com/andrewbeng89/mitb_gae_demo.git deploy
+- git clone https://github.com/andrewbeng89/python-gae-demo.git deploy
 after_success:
 - google_appengine/appcfg.py --oauth2_refresh_token=$MY_GAE_TOKEN update deploy/
-env:
-  global:
-    secure: ELtmEbN4WKZPf+Q/fLy0pUSSCLsXOUCNahECko3bkjclaa71CZNmPTVw7IC36YDI6gqhCx/x6x6n04QkdxoChXKuCN2ht/aQRQUFyvB2br8wtMdEGa6Jl2/5NZ6YOtyY/CfV2551djftm9SL0i4tbHv2PSBRdaFGaN46n4ulicY=
