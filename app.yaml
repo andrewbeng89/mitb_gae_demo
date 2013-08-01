@@ -5,11 +5,12 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /.*
-  script: helloworld.application
+- url: /
+  static_files: public/index.html
+  upload: public/index.html
   
-- url: /public
-  static_dir: public
+- url: /api/.*
+  script: helloworld.application
   
 libraries:
 - name: PIL
