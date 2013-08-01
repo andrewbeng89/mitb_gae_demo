@@ -1,4 +1,4 @@
-language: python
+trlanguage: python
 python:
 - '2.7'
 before_script:
@@ -14,6 +14,20 @@ script:
 - git clone https://github.com/andrewbeng89/mitb_gae_demo.git deploy
 after_success:
 - google_appengine/appcfg.py --oauth2_refresh_token=$MY_GAE_TOKEN update deploy/
+- cd deploy
+- git branch -a
+- git checkout --orphan gh-pages
+- git rm -rf .
+- ls
+- git checkout master -- public
+- git pull origin gh-pages
+- git add -A .
+- git config --global user.email "andrew.beng.2010@sis.smu.edu.sg"
+- git config --global user.name "andrewbeng89"
+- git commit -m "travis-ci update"
+- git status
+- git push https://$MY_GITHUB_TOKEN@github.com/andrewbeng89/mitb_gae_demo.git gh-pages
 env:
   global:
-    secure: ABtwmOKk8pb5Bb9V33hK1FcO6H1QTyCnyjrB58NZ1ZKIvp9DXBHFlCIQRt0fhz5BSp8/oHdr+ztSgdgmMDeVnYIY4sv1TQ06MZbfNVSamU1qvXVVUW0FrcGPJ3Omt/d9zJGZ6wsYwyeiXZGNu5oum7wMKyxWHWRvnKXck5iGHJE=
+  - secure: ABtwmOKk8pb5Bb9V33hK1FcO6H1QTyCnyjrB58NZ1ZKIvp9DXBHFlCIQRt0fhz5BSp8/oHdr+ztSgdgmMDeVnYIY4sv1TQ06MZbfNVSamU1qvXVVUW0FrcGPJ3Omt/d9zJGZ6wsYwyeiXZGNu5oum7wMKyxWHWRvnKXck5iGHJE=
+  - secure: ISDZnwjfIFrZbKz30QzrA0OiZWTmQDUaSmnAOOotUkSDaGuwz8/Q11QDhomVOBP9Sd1lQ3Ed+spclbQXUky+V2wbur5eUPvtwYrpgbUtXjxBhHF/Zl+Yczx3DZ7XyaETwj4nE7ook97WeHDWLTHz2iHL5P2PkxX3QmukJ0UtMP0=
