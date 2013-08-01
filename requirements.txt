@@ -1,1 +1,1 @@
-Jinja2==2.7
+gunicorn==17.5
