@@ -99,3 +99,5 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 5. Commit with message `git commit -a -m 'created GAE project'`
 6. Push the update `git push origin master`
 7. You can track the build progress at the Travis-CI website
+
+* updating to include push public folder to gh-pages
