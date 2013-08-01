@@ -39,8 +39,8 @@ Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 5. Create a new config file in the .ssh folder and enter these lines below:
  ```
     # Default GitHub user
-     Host github.com
-     HostName github.com
-     PreferredAuthentications publickey
-     IdentityFile ~/.ssh/koding_id_rsa
+    Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/koding_id_rsa
  ```
