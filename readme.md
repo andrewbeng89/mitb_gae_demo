@@ -1,6 +1,6 @@
 # MITB Cloud Computing Lab for Google App Engine development and CI with Koding and Travis-CI
 
-This tutorial will cover the steps for using a virtual maching (VM) on [koding.com](https://koding.com) to code python web apps and use Travis-CI as a test and deploy tool to push updates to Google App Engine.
+This tutorial will cover the steps for using a virtual maching (VM) on [koding.com](https://koding.com) to code python web apps and use Travis-CI as a test and deploy tool to push updates to Google App Engine. This tutorial will also allow you to push 'static' files (e.g. HTML, JavaScripts etc.) to the GitHub pages brance of your repository
 
 Once you have signed up and received an invitation for Koding.com, you will have access to a persional Koding VM. Open the terminal shell of your VM which will look like this:
 
@@ -57,24 +57,7 @@ Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 5. Initialise the demo app as a git repo on the VM `git init`
 6. Add the remote to the newly create GitHub repository `git remote add origin git@github.com:<your_username>/<your_new_repo>.git`
 7. Create a new GAE application [here](https://appengine.google.com/)
-8. Open the app.yaml file and edit the following lines:
-<pre>
-  <code>
-application: <new-gae-app-id>
-version: 1
-runtime: python27
-api_version: 1
-threadsafe: true
-
-handlers:
-- url: /.*
-  script: helloworld.application
-  
-libraries:
-- name: PIL
-  version: latest
-  </code>
-</pre>
+8. Open the app.yaml file and edit the following line: `application: <new-gae-app-id>`
 
 
 ## First Deploy to GAE
@@ -90,6 +73,14 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 7. Check the .travis.yml file to see whether the new secure variable has been added
 
 
+# Add GitHub Personal API Access Token
+
+1. Create a new Personal API Access Token [here](https://github.com/settings/applications)
+2. Copy the token to clipboar and encrypt it with travis
+3. `travis encrypt MT_GITHUB_TOKEN="<paste_token from_clipboard>" --add -r <your_github_username/your_github_repo>`
+4. Edit this line of the .travis.yml file: `- git push https://$MY_GITHUB_TOKEN@github.com/<your_username>/<your_repo>.git gh-pages`
+
+
 ## Setup and Build with Travis-CI
 
 1. Register for [Travis-CI](https://travis-ci.org) using your GitHub account
@@ -100,4 +91,5 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 6. Push the update `git push origin master`
 7. You can track the build progress at the Travis-CI website
 
-* updating to include push public folder to gh-pages
+* updated to include public folder push to gh-pages branch
+* coming soon: challenging tasks
