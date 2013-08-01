@@ -6,7 +6,6 @@ before_script:
 - wget http://googleappengine.googlecode.com/files/google_appengine_1.8.2.zip
 - unzip google_appengine_1.8.2.zip
 - rm google_appengine_1.8.2.zip
-- ln -s google_appengine/*.py .
 - sudo apt-get install python-imaging
 install:
 - pip install -r requirements.txt --use-mirrors
