@@ -8,6 +8,9 @@ handlers:
 - url: /.*
   script: helloworld.application
   
+- url: /public
+  static_dir: public
+  
 libraries:
 - name: PIL
   version: latest
