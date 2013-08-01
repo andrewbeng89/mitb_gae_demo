@@ -9,8 +9,11 @@ before_script:
 - ln -s google_appengine/*.py .
 - sudo apt-get install python-imaging
 install:
-- "pip install -r requirements.txt --use-mirrors"
+- pip install -r requirements.txt --use-mirrors
 script:
 - git clone https://github.com/andrewbeng89/mitb_gae_demo.git deploy
 after_success:
 - google_appengine/appcfg.py --oauth2_refresh_token=$MY_GAE_TOKEN update deploy/
+env:
+  global:
+    secure: ABtwmOKk8pb5Bb9V33hK1FcO6H1QTyCnyjrB58NZ1ZKIvp9DXBHFlCIQRt0fhz5BSp8/oHdr+ztSgdgmMDeVnYIY4sv1TQ06MZbfNVSamU1qvXVVUW0FrcGPJ3Omt/d9zJGZ6wsYwyeiXZGNu5oum7wMKyxWHWRvnKXck5iGHJE=
