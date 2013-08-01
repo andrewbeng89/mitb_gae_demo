@@ -8,7 +8,7 @@ before_script:
 - rm google_appengine_1.8.2.zip
 - sudo apt-get install python-imaging
 install:
-- pip install -r requirements.txt --use-mirrors
+- sudo pip install -r requirements.txt --use-mirrors
 script:
 - git clone https://github.com/andrewbeng89/mitb_gae_demo.git deploy
 after_success:
