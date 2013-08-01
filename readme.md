@@ -73,7 +73,7 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 7. Check the .travis.yml file to see whether the new secure variable has been added
 
 
-# Add GitHub Personal API Access Token
+## Add GitHub Personal API Access Token
 
 1. Create a new Personal API Access Token [here](https://github.com/settings/applications)
 2. Copy the token to clipboar and encrypt it with travis
