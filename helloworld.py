@@ -10,7 +10,8 @@ class MainPage(webapp2.RequestHandler):
                 'hello': 'world',
                 'key': 'value',
                 'another': 'test',
-                'json': 'object'
+                'json': 'object',
+                'some': 'changes'
             }
         self.response.write(json.encode(hello_world))
 
