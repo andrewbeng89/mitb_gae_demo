@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andrewbeng89/mitb_gae_demo.png?branch=master)
+
 # MITB Cloud Computing Lab for Google App Engine development and CI with Koding and Travis-CI
 
 This tutorial will cover the steps for using a virtual maching (VM) on [koding.com](https://koding.com) to code python web apps and use Travis-CI as a test and deploy tool to push updates to Google App Engine. This tutorial will also allow you to push 'static' files (e.g. HTML, JavaScripts etc.) to the GitHub pages brance of your repository
