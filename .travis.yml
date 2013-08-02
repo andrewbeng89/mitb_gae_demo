@@ -15,8 +15,7 @@ after_success:
 - google_appengine/appcfg.py --oauth2_refresh_token=$MY_GAE_TOKEN update deploy/
 - cd deploy
 - git branch -a
-- git checkout --orphan gh-pages
-- git rm -rf .
+- git checkout gh-pages
 - ls
 - git checkout master -- public
 - git pull origin gh-pages
