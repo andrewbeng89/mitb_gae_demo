@@ -12,18 +12,6 @@ class APIRootHandler(webapp2.RequestHandler):
             }
         self.response.write(json.encode(hello_world))
 
-class APIAnotherHandler(webapp2.RequestHandler):
-
-    def get(self):
-        self.response.headers['Content-Type'] = 'application/json'
-        hello_world = {
-                'hello': 'world',
-                'key': 'value',
-                'another': 'test'
-            }
-        self.response.write(json.encode(hello_world))
-        
 application = webapp2.WSGIApplication([
     ('/api/', APIRootHandler)
-    ('/api/another', APIAnotherHandler)
 ], debug=True)
