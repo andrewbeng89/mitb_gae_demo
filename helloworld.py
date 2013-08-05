@@ -22,6 +22,6 @@ class APISomeHandler(webapp2.RequestHandler):
         self.response.write(json.encode(response))
 
 application = webapp2.WSGIApplication([
-    ('/api/', APIRootHandler)
+    ('/api/', APIRootHandler),
     ('/api/another', APISomeHandler)
 ], debug=True)
