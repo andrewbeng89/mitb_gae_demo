@@ -12,12 +12,12 @@ handlers:
 - url: /api/.*
   script: helloworld.application
   
-- url: /public/css/(.*\.css)
+- url: /css/(.*\.css)
   mime_type: text/css
   static_files: public/css/\1
   upload: public/css/(.*\.css)
   
-- url: /public/js(.*\.js)
+- url: /js(.*\.js)
   mime_type: text/javascript
   static_files: public/js/\1
   upload: public/js/(.*\.js)
