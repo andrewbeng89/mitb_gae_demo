@@ -29,7 +29,7 @@ todoApp.controller('TodoController', function($scope, $http) {
   function deleteTodo(id) {
       $scope.todos.forEach(function(todo, i) {
           if (todo.id === id) {
-              $scope.todos.splice(i, 1);
+              return $scope.todos.splice(i, 1);
           }
       });
   }
