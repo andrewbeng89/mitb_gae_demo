@@ -19,19 +19,23 @@ todoApp.controller('TodoController', function($scope, $http) {
   };
 
   $scope.removeCompletedItems = function() {
+    var uncompleted_todos = [];
     $scope.todos.forEach(function(todo) {
         if (todo.completed === true) {
             deleteTodo(todo.id);
+        } else {
+          uncompleted_todos.push(todo);
         }
     });
+    $scope.todos = uncompleted_todos;
   };
 
   function deleteTodo(id) {
-      $scope.todos.forEach(function(todo, i) {
+      /*$scope.todos.forEach(function(todo, i) {
           if (todo.id === id) {
               return $scope.todos.splice(i, 1);
           }
-      });
+      });*/
   }
   
   function generateID() {
