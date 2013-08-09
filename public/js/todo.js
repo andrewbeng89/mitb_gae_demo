@@ -15,11 +15,6 @@ todoApp.controller('TodoController', function($scope, $http) {
 
   $scope.changeCompleted = function(todo) {
     // Update the todo
-    if (todo.completed === true) {
-        todo.completed = false;
-    } else {
-        todo.completed = true;
-    }
     var message = (todo.completed === true) ? 'Task Completed!' : 'Task Uncompleted!';
   };
 
