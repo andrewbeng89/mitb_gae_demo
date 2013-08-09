@@ -8,7 +8,8 @@ todoApp.controller('TodoController', function($scope, $http) {
     $scope.newTodoTitle = '';
     $scope.todos.push({
         title: title,
-        completed: false
+        completed: false,
+        id: generateID()
     });
   };
 
@@ -20,16 +21,27 @@ todoApp.controller('TodoController', function($scope, $http) {
   $scope.removeCompletedItems = function() {
     $scope.todos.forEach(function(todo) {
         if (todo.completed === true) {
-            deleteTodo(todo);
+            deleteTodo(todo.id);
         }
     });
   };
 
-  function deleteTodo(todo) {
-      if ($scope.todos.indexOf(todo) !== -1) {
-        var index = $scope.todos.indexOf(todo);
-        $scope.todos.splice(index, 1);
-      }
+  function deleteTodo(id) {
+      $scope.todos.forEach(function(todo, i) {
+          if (todo.id === id) {
+              $scope.todos.splice(i, 1);
+          }
+      });
+  }
+  
+  function generateID() {
+      var rand = Math.random();
+      $scope.todos.forEach(function(todo) {
+          if (todo.id === rand) {
+             generateID(); 
+          }
+      });
+      return rand;
   }
 
 });
