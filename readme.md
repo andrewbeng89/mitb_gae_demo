@@ -51,7 +51,7 @@ Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 
 ## Clone and Configure Demo App
 
-1. Clone this repository `git clone https://github.com/andrewbeng89/mitb_gae_demo.git`
+1. Clone this repository `git clone https://github.com/andrewbeng89/mitb_gae_demo.git -b master`
 2. `cd mitb_gae_demo`
 3. Reomve the .git directory `rm -rf .git`
 4. Create a new GitHub repository with your account
@@ -80,6 +80,19 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 2. Copy the token to clipboar and encrypt it with travis
 3. `travis encrypt MT_GITHUB_TOKEN="<paste_token from_clipboard>" --add -r <your_github_username/your_github_repo>`
 4. Edit this line of the .travis.yml file: `- git push https://$MY_GITHUB_TOKEN@github.com/<your_username>/<your_repo>.git gh-pages`
+
+
+## Initilialise GH-Pages Branch 
+
+1. From the terminal, cd out of the application repository: `cd ..`
+2. Clone the github repository into a new gh-pages folder: `git clone git@github.com:<your_username>/<your_repo>.git gh-pages`
+3. cd into the gh-pages folder: `cd gh-pages`
+4. Create the new gh-pages branch and remove all content from the working directory and index `git checkout --orphan gh-pages`
+5. `git rm -rf .`
+6. Add the index.html file from the master branch: `git checkout master -- index.html`
+7. Add index.html to the new branch: `git add -A .`
+8. Commit:  `git commit -a -m 'initialising gh-pages'`
+9. Push: `git push origin gh-pages`
 
 
 ## Setup and Build with Travis-CI
