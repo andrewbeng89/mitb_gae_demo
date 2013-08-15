@@ -107,4 +107,7 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 
 * updated to include public folder push to gh-pages branch
 * coming soon: challenging tasks
-* * Check you the sister tutorial for deploying a Node.js  application to Heroku [here](https://github.com/andrewbeng89/mitb_node_demo)
+* Check out the sister tutorial for deploying a Node.js  application to Heroku [here](https://github.com/andrewbeng89/mitb_node_demo)
+
+
+## View the demo app on [Google App Engine](http://mitb-python-demo.appspot.com/)
