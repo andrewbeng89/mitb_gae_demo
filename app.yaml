@@ -10,7 +10,7 @@ handlers:
   upload: public/index.html
   
 - url: /api/.*
-  script: helloworld.application
+  script: app.application
   
 - url: /css/(.*\.css)
   mime_type: text/css

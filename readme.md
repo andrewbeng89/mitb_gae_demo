@@ -1,14 +1,21 @@
 [![Build Status](https://travis-ci.org/andrewbeng89/mitb_gae_demo.png?branch=master)](https://travis-ci.org/andrewbeng89/mitb_gae_demo)
 # MITB Cloud Computing Lab for Google App Engine development and CI with Koding and Travis-CI
 
-This tutorial will cover the steps for using a virtual maching (VM) on [koding.com](https://koding.com) to code python web apps and use Travis-CI as a test and deploy tool to push updates to Google App Engine. This tutorial will also allow you to push 'static' files (e.g. HTML, JavaScripts etc.) to the GitHub pages brance of your repository.
+This tutorial will cover the steps for using a virtual maching (VM) on [koding.com](https://koding.com) to develop and deploy Google App Engine (Python) web apps.
+
+The tutorial is divided into the following 3 sections: 
+
+1. Part 1 walks through the steps to use Git and Travis-CI as a test and deploy tool to push updates to GAE (PaaS). This section will also allow you to push 'static' files (e.g. HTML, JavaScripts etc.) to the GitHub pages brance of your repository.
+2. Part 3 covers application development approaches in the Cloud
 
 Once you have signed up and received an invitation for Koding.com, you will have access to a persional Koding VM. Open the terminal shell of your VM which will look like this:
 
 ![koding terminal](/images/koding_vm.png)
 
 
-## Install Travis Ruby Gem
+## Part 1: Travis, Github and Google App Engine (GAE)
+
+### Install Travis Ruby Gem
 
 The Travi-CI gem will be used to encrypt a OAuth2 token that will be used to push updates to Google App Engine from the Travis build.
 
@@ -16,7 +23,7 @@ The Travi-CI gem will be used to encrypt a OAuth2 token that will be used to pus
 2. Enter your Koding password when prompted
 
 
-## Install Google App Engine - Python
+### Install Google App Engine - Python
 
 The Google App Engine python SDK is required to retrieve the OAuth2 token which will be encrypted by travis
 
@@ -29,7 +36,7 @@ The Google App Engine python SDK is required to retrieve the OAuth2 token which 
 7. `cd ~/`
 
 
-## Configuring Git and GitHub
+### Configuring Git and GitHub
 
 Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 
@@ -49,7 +56,7 @@ Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 </pre> 
 
 
-## Clone and Configure Demo App
+### Clone and Configure Demo App
 
 1. Clone this repository `git clone https://github.com/andrewbeng89/mitb_gae_demo.git -b master`
 2. `cd mitb_gae_demo`
@@ -61,7 +68,7 @@ Generate a new ssh key pair on the VM to use to sync with GitHub and Travis-CI.
 8. Open the app.yaml file and edit the following line: `application: <new-gae-app-id>`
 
 
-## First Deploy to GAE
+### First Deploy to GAE
 
 The very first deployment to GAE has to be made from the Koding VM in order to retrieve the OAuth2 refresh_token which Travis-CI will use later
 
@@ -74,7 +81,7 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 7. Check the .travis.yml file to see whether the new secure variable has been added
 
 
-## Add GitHub Personal API Access Token
+### Add GitHub Personal API Access Token
 
 1. Create a new Personal API Access Token [here](https://github.com/settings/applications)
 2. Copy the token to clipboar and encrypt it with travis
@@ -82,7 +89,7 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 4. Edit this line of the .travis.yml file: `- git push https://$MY_GITHUB_TOKEN@github.com/<your_username>/<your_repo>.git gh-pages`
 
 
-## Initilialise GH-Pages Branch 
+### Initilialise GH-Pages Branch 
 
 1. From the terminal, cd out of the application repository: `cd ..`
 2. Clone the github repository into a new gh-pages folder: `git clone git@github.com:<your_username>/<your_repo>.git gh-pages`
@@ -95,7 +102,7 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 9. Push: `git push origin gh-pages`
 
 
-## Setup and Build with Travis-CI
+### Setup and Build with Travis-CI
 
 1. Register for [Travis-CI](https://travis-ci.org) using your GitHub account
 2. From your Travis-CI [profile](https://travis-ci.org/profile) page, enable the newly created GitHub repository
@@ -105,9 +112,26 @@ The very first deployment to GAE has to be made from the Koding VM in order to r
 6. Push the update `git push origin master`
 7. You can track the build progress at the Travis-CI website
 
-* updated to include public folder push to gh-pages branch
-* coming soon: challenging tasks
-* Check out the sister tutorial for deploying a Node.js  application to Heroku [here](https://github.com/andrewbeng89/mitb_node_demo)
+
+## Part 2: Application Development in the Cloud
+
+This section will cover simple front and back end techniques to get you up to speed with application development in the Cloud
+
+### AngularJS
+
+[AngularJS](http://angularjs.org) provides a modularized approach to bind data structures, e.g. Arrays, Objects and other variables, to HTML views. This repository provides the code for a simple "todo list" application created in AngularJS.
+
+There are two versions of this "todo" application:
+
+1. A purely front-end AngularJS app that does not communicate with any back-end database that will be pushed to GitHub Pages (index.html located [here](https://github.com/andrewbeng89/mitb_node_demo/blob/master/index.html))
+2. Integrated AngularJS app that communites with a Node.js backe-end hosted on Heroku and Elastic Beanstalk (index.html located [here](https://github.com/andrewbeng89/mitb_node_demo/blob/master/public/index.html))
+
+### Python with Google NDB Datastore
+* Documentation in progress
+
+
+### Application Tracking with Google Analytics
+* Work in progress
 
 
 ## View the demo app on [Google App Engine](http://mitb-python-demo.appspot.com/)
